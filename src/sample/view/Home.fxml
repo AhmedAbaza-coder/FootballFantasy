@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="861.0" prefWidth="1097.0" style="-fx-background-color: #1B1B1B;" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.HomeController">
+   <children>
+      <StackPane alignment="TOP_CENTER" layoutX="-1.0" layoutY="12.0" prefHeight="286.0" prefWidth="1097.0" AnchorPane.bottomAnchor="563.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="12.0">
+         <children>
+            <Group>
+               <children>
+                  <ImageView fitHeight="308.0" fitWidth="1088.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Group.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="269.0" fitWidth="479.0" layoutX="619.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@WelcomeImg.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="114.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fantasy" wrappingWidth="311.73670959472656">
+                     <font>
+                        <Font name="PremierSans" size="120.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="108.0" layoutY="174.0" prefHeight="46.0" prefWidth="322.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="153.336669921875">
+                           <font>
+                              <Font name="PremierSans" size="56.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frist" wrappingWidth="84.53661346435547">
+                           <font>
+                              <Font name="PremierSans" size="56.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Last" wrappingWidth="83.73662567138672">
+                           <font>
+                              <Font name="PremierSans" size="56.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane layoutX="754.0" layoutY="392.0" AnchorPane.bottomAnchor="71.39999999999998" AnchorPane.leftAnchor="754.0" AnchorPane.rightAnchor="52.60000000000002" AnchorPane.topAnchor="392.0">
+         <children>
+            <Group>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="232.0" layoutX="18.0" stroke="TRANSPARENT" strokeType="INSIDE" width="252.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.19465643030996543">
+                           <stops>
+                              <Stop color="#38003d" />
+                              <Stop color="#159a6a" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <VBox alignment="TOP_CENTER" layoutY="16.0" prefHeight="381.0" prefWidth="290.0" style="-fx-background-color: #272727;">
+                     <children>
+                        <ImageView fitHeight="63.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/g4199.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Matches">
+                           <font>
+                              <Font name="PremierSans" size="29.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b1b1b" height="32.0" layoutX="11.0" stroke="TRANSPARENT" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="20.0" strokeType="INSIDE" strokeWidth="0.0" width="56.0" />
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Line endX="-0.3999748229980469" endY="11.39999771118164" layoutX="39.0" layoutY="14.0" startX="-0.3999748229980469" startY="-7.39998722076416" stroke="#989898" />
+                                    <Text fill="WHITE" layoutX="48.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="135.0" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b1b1b" height="32.0" layoutX="11.0" stroke="TRANSPARENT" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="20.0" strokeType="INSIDE" strokeWidth="0.0" width="56.0" />
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Line endX="-0.3999748229980469" endY="11.39999771118164" layoutX="39.0" layoutY="14.0" startX="-0.3999748229980469" startY="-7.39998722076416" stroke="#989898" />
+                                    <Text fill="WHITE" layoutX="48.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="191.0" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b1b1b" height="32.0" layoutX="11.0" stroke="TRANSPARENT" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="20.0" strokeType="INSIDE" strokeWidth="0.0" width="56.0" />
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Line endX="-0.3999748229980469" endY="11.39999771118164" layoutX="39.0" layoutY="14.0" startX="-0.3999748229980469" startY="-7.39998722076416" stroke="#989898" />
+                                    <Text fill="WHITE" layoutX="48.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="247.0" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b1b1b" height="32.0" layoutX="11.0" stroke="TRANSPARENT" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="20.0" strokeType="INSIDE" strokeWidth="0.0" width="56.0" />
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Line endX="-0.3999748229980469" endY="11.39999771118164" layoutX="39.0" layoutY="14.0" startX="-0.3999748229980469" startY="-7.39998722076416" stroke="#989898" />
+                                    <Text fill="WHITE" layoutX="48.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane layoutX="420.0" layoutY="392.0" AnchorPane.bottomAnchor="71.39999999999998" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="386.6" AnchorPane.topAnchor="392.0">
+         <children>
+            <Group>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="232.0" layoutX="18.0" stroke="TRANSPARENT" strokeType="INSIDE" width="252.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.19465643030996543">
+                           <stops>
+                              <Stop color="#38003d" />
+                              <Stop color="#159a6a" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <VBox alignment="TOP_CENTER" layoutY="16.0" prefHeight="381.0" prefWidth="290.0" style="-fx-background-color: #272727;">
+                     <children>
+                        <ImageView fitHeight="63.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/g4199.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Upcoming  Matches">
+                           <font>
+                              <Font name="PremierSans" size="29.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+                                       <font>
+                                          <Font name="PremierSans" size="46.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="135.0" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+                                       <font>
+                                          <Font name="PremierSans" size="46.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="191.0" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+                                       <font>
+                                          <Font name="PremierSans" size="46.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="247.0" prefHeight="56.0" prefWidth="290.0" spacing="40.0" style="-fx-background-color: #353535;">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/ManchesterUnited.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Group>
+                                 <children>
+                                    <Text fill="WHITE" layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VS">
+                                       <font>
+                                          <Font name="PremierSans" size="46.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Group>
+                              <ImageView fitHeight="46.0" fitWidth="44.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@liverpool.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane layoutX="234.0" layoutY="406.0" prefHeight="149.0" prefWidth="140.0" AnchorPane.bottomAnchor="306.0" AnchorPane.leftAnchor="234.0" AnchorPane.rightAnchor="723.0" AnchorPane.topAnchor="406.0">
+         <children>
+            <Group>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="107.0" layoutX="10.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeType="INSIDE" width="121.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.19465643030996543">
+                           <stops>
+                              <Stop color="#38003d" />
+                              <Stop color="#159a6a" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <VBox alignment="TOP_CENTER" layoutY="11.0" prefHeight="128.0" prefWidth="140.0" style="-fx-background-color: #272727;">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Best Squad">
+                           <font>
+                              <Font name="PremierSans" size="27.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fill="WHITE" layoutX="53.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARETA" wrappingWidth="104.05438232421875">
+                           <font>
+                              <Font name="Segoe UI Bold" size="25.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="28.0" top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER" prefHeight="18.0" prefWidth="140.0" spacing="5.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TOT:">
+                                 <font>
+                                    <Font name="PremierSans" size="27.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" wrappingWidth="48.682281494140625">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane layoutX="55.0" layoutY="408.0" prefHeight="142.0" prefWidth="140.0" AnchorPane.bottomAnchor="311.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="902.0" AnchorPane.topAnchor="408.0">
+         <children>
+            <Group>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="107.0" layoutX="10.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeType="INSIDE" width="121.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.19465643030996543">
+                           <stops>
+                              <Stop color="#38003d" />
+                              <Stop color="#159a6a" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <VBox alignment="TOP_CENTER" layoutY="11.0" prefHeight="126.0" prefWidth="140.0" style="-fx-background-color: #272727;">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="YOUR RANK">
+                           <font>
+                              <Font name="PremierSans" size="27.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fill="WHITE" layoutX="53.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="29.387707710266113">
+                           <font>
+                              <Font name="Segoe UI Bold" size="56.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER" prefHeight="10.0" prefWidth="140.0" spacing="5.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TOT:">
+                                 <font>
+                                    <Font name="PremierSans" size="27.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" wrappingWidth="48.682281494140625">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane layoutX="83.0" layoutY="569.0" AnchorPane.bottomAnchor="89.6" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="763.6" AnchorPane.topAnchor="569.0">
+         <children>
+            <Group>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="181.0" layoutX="11.0" stroke="TRANSPARENT" strokeLineCap="BUTT" strokeType="INSIDE" width="225.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.19465643030996543">
+                           <stops>
+                              <Stop color="#38003d" />
+                              <Stop color="#159a6a" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <VBox alignment="TOP_CENTER" layoutY="12.0" prefHeight="178.0" prefWidth="248.0" style="-fx-background-color: #272727;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="248.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@crown.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="King of the Gameweek">
+                                 <font>
+                                    <Font name="PremierSans" size="27.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="248.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/LiverpoolShirt.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Salah">
+                                 <font>
+                                    <Font name="PremierSans" size="70.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="10.0" prefWidth="140.0" spacing="5.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <Group>
+                           <children>
+                              <Rectangle height="58.0" stroke="#ffffff00" strokeType="INSIDE" width="250.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop color="#159a6a" />
+                                          <Stop color="#159a6a" offset="0.007633587786259542" />
+                                          <Stop color="#38003d" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Text fill="WHITE" layoutX="58.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19 Points" wrappingWidth="133.48228454589844">
+                                 <font>
+                                    <Font name="PremierSans" size="46.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Group>
+                     </children>
+                  </VBox>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

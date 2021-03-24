@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTabPane fx:id="MainTabPane" layoutX="10.0" layoutY="10.0" prefHeight="860.0" prefWidth="1300.0" side="LEFT" stylesheets="@TabPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab fx:id="HomeTab" closable="false">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1095.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="475.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" wrappingWidth="303.67083740234375" AnchorPane.bottomAnchor="380.12000274658203" AnchorPane.leftAnchor="439.32916259765625" AnchorPane.rightAnchor="439.32916259765625" AnchorPane.topAnchor="381.3280029296875">
+                           <font>
+                              <Font name="PremierSans" size="96.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="ManageTab" closable="false">
+               <content>
+                  <BorderPane fx:id="ManageTeamPane" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="SquadSelectionTab" closable="false">
+               <content>
+                  <BorderPane fx:id="SelectSquadPane" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="LeagueTab" closable="false">
+               <content>
+                  <BorderPane fx:id="LeaguePane" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="AboutTab">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1191.0" styleClass="AboutPage" stylesheets="style.css">
+                     <children>
+                        <Text fill="WHITE" layoutX="344.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Page" wrappingWidth="351.6708984375">
+                           <font>
+                              <Font name="PremierSans" size="96.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

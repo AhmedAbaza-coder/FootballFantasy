@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<JFXToolbar fx:id="WindowBorder" onMouseDragged="#Dragged" onMousePressed="#Pressed" prefHeight="42.0" prefWidth="1458.0" style="-fx-background-color: #141313;" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.TitleBarController">
+   <top>
+      <AnchorPane prefHeight="14.0" prefWidth="1458.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1187.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="8.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Fantasy" wrappingWidth="62.6708984375">
+                     <font>
+                        <Font name="PremierSans" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <ImageView fitHeight="35.0" fitWidth="26.0" layoutX="154.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0">
+               <image>
+                  <Image url="@Logo2.png" />
+               </image>
+            </ImageView>
+            <HBox fx:id="CloseApp" alignment="CENTER" prefHeight="42.0" prefWidth="34.0" spacing="20.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+               <children>
+                  <Line endX="-114.5977783203125" endY="3.0994415283203125E-6" onMouseClicked="#minimize" startX="-100.0" stroke="#3ab555" strokeWidth="4.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Line>
+                  <Circle fill="#3ab555" onMouseClicked="#maximize" radius="10.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <ImageView fitHeight="23.0" fitWidth="52.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@exitbtn.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+</JFXToolbar>

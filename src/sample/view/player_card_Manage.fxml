@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="115.0" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PlayerCardManageController">
+   <children>
+      <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="115.0" prefWidth="115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="playerImage" fitHeight="80.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@AddTshirt.png" />
+               </image>
+            </ImageView>
+            <TextFlow lineSpacing="10.0" maxHeight="-Infinity" maxWidth="100.0" prefHeight="21.0" prefWidth="85.0" style="-fx-background-color: rgba(0, 0, 0, 0.3);" textAlignment="CENTER">
+               <children>
+                  <Text fx:id="playerName" fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add forward" textAlignment="CENTER" wrappingWidth="88.49998360872269">
+                     <font>
+                        <Font name="PremierSans" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+            <TextFlow layoutX="17.0" layoutY="96.0" lineSpacing="10.0" maxHeight="-Infinity" maxWidth="100.0" prefHeight="6.0" prefWidth="100.0" style="-fx-background-color: #38003D;" textAlignment="CENTER">
+               <children>
+                  <Text fx:id="playerPrice" fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="88.49998360872269">
+                     <font>
+                        <Font name="PremierSans" size="9.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+         </children>
+      </VBox>
+      <JFXButton fx:id="playerInform" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" ellipsisString="" graphicTextGap="0.0" onAction="#playerInformClicked" prefHeight="22.0" prefWidth="21.0" ripplerFill="#747474" style="-fx-background-color: #252525; -fx-background-radius: 5;" text=" " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@i.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="playerChange" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" ellipsisString="" graphicTextGap="0.0" onAction="#removeButtonClicked" prefHeight="22.0" prefWidth="21.0" ripplerFill="#fdffcd" style="-fx-background-color: #FAFF74; -fx-background-radius: 5;" text=" " AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Solid.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Circle fx:id="CaptainSign" fill="#0000007b" layoutX="100.0" layoutY="56.0" radius="11.0" stroke="TRANSPARENT" strokeType="INSIDE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="45.0" />
+   </children>
+</AnchorPane>

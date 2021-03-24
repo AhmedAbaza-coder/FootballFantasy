@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="RegisterScene" prefHeight="860.0" prefWidth="1300.0" style="-fx-background-color: #5A1155;" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginRegisterController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1300.0" styleClass="RegisterScene" stylesheets="@../../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="86.0" fitWidth="267.0" layoutX="25.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="28.0">
+               <image>
+                  <Image url="@Logo.png" />
+               </image>
+            </ImageView>
+            <StackPane fx:id="RegisterForm" layoutX="380.0" layoutY="100.0" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="90.0">
+               <children>
+                  <Group>
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="538.0" style="-fx-background-color: #242222; -fx-background-radius: 40;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="127.0" prefHeight="110.0" prefWidth="267.0" text="Register" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="60.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="132.0" text="First Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="241.0" text="Last Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="347.0" text="Email" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="450.0" text="Password" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="560.0" text="Gender" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="FirstNameRegister" layoutX="39.0" layoutY="170.0" prefHeight="58.0" prefWidth="462.0" promptText="your first name" style="-fx-background-radius: 15; -fx-background-color: #494747; -fx-text-inner-color: #ffffff;" />
+                              <TextField fx:id="LastNameRegister" layoutX="39.0" layoutY="279.0" prefHeight="58.0" prefWidth="462.0" promptText="your last name" style="-fx-background-radius: 15; -fx-background-color: #494747; -fx-text-inner-color: #ffffff;" />
+                              <TextField fx:id="EmailRegister" layoutX="39.0" layoutY="381.0" prefHeight="58.0" prefWidth="462.0" promptText="your email" style="-fx-background-radius: 15; -fx-background-color: #494747; -fx-text-inner-color: #ffffff;" />
+                              <PasswordField fx:id="PasswordRegister" layoutX="39.0" layoutY="482.0" prefHeight="58.0" prefWidth="462.0" promptText="your new password" style="-fx-background-radius: 15; -fx-background-color: #494747; -fx-text-inner-color: #ffffff;" />
+                              <JFXButton fx:id="RegisterBtn" layoutX="163.0" layoutY="600.0" onAction="#RegisterAccount" prefHeight="58.0" prefWidth="225.0" ripplerFill="#d71596" style="-fx-background-color: #5A1155; -fx-background-radius: 50;" text="Register" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXRadioButton fx:id="RadioMale" layoutX="147.0" layoutY="565.0" style="-jfx-selected-color: #cd17c1;" text="Male" textFill="WHITE">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="gender" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="RadioFemale" layoutX="270.0" layoutY="565.0" style="-jfx-selected-color: #cd17c1;" text="Female" textFill="WHITE" toggleGroup="$gender" />
+                              <Label layoutX="159.0" layoutY="672.0" text="Already have an account?" textFill="WHITE" />
+                              <Hyperlink fx:id="Signin" layoutX="330.0" layoutY="666.0" onMouseClicked="#SigninClicked" text="Sign  in" textFill="#cd17c1" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Label fx:id="EmptyInputReg" alignment="CENTER" layoutX="186.0" layoutY="101.0" prefHeight="30.0" prefWidth="144.0" text="EMPTY INPUT!" textAlignment="CENTER" textFill="#ff2727">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="InvaildEmailReg" alignment="CENTER" layoutX="101.0" layoutY="101.0" prefHeight="30.0" prefWidth="320.0" text="INVALID EMAIL OR PASSWORD!" textAlignment="CENTER" textFill="#ff2727">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Group>
+               </children>
+            </StackPane>
+            <StackPane fx:id="LoginForm" layoutX="420.0" layoutY="160.0" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="160.0">
+               <children>
+                  <Group>
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="456.0" style="-fx-background-color: #242424; -fx-background-radius: 40;">
+                           <children>
+                              <Label fx:id="Login_title" alignment="CENTER" layoutX="168.0" layoutY="15.0" prefHeight="93.0" prefWidth="124.0" text="Login" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="45.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="email_label" layoutX="43.0" layoutY="134.0" text="Email" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="password_label" layoutX="41.0" layoutY="253.0" prefHeight="30.0" prefWidth="90.0" text="Password" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="EmailLogin" alignment="CENTER" focusColor="#ffffff00" layoutX="42.0" layoutY="174.0" prefHeight="65.0" prefWidth="374.0" style="-fx-text-inner-color: #ffffff; -fx-background-color: #484848; -fx-background-radius: 25;" unFocusColor="#4d4d4d00" />
+                              <JFXPasswordField fx:id="passwordLogin" alignment="CENTER" focusColor="#405aa800" layoutX="41.0" layoutY="297.0" prefHeight="65.0" prefWidth="374.0" style="-fx-text-inner-color: #ffffff; -fx-background-color: #484848; -fx-background-radius: 25;" unFocusColor="#4d4d4d00" />
+                              <JFXButton fx:id="LoginBtn" layoutX="132.0" layoutY="383.0" onMouseClicked="#Login" prefHeight="65.0" prefWidth="192.0" style="-fx-background-color: #5A1155; -fx-background-radius: 30;" text="Login" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label layoutX="96.0" layoutY="476.0" text="Not registered?" textFill="WHITE" />
+                              <Hyperlink fx:id="CreateAccount" layoutX="224.0" layoutY="470.0" onMouseClicked="#CreateAccountClicked" text="Create an account" textFill="#cd17c1" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Label fx:id="EmptyInput" alignment="CENTER" layoutX="130.0" layoutY="103.0" prefHeight="30.0" prefWidth="192.0" text="EMPTY INPUT!" textAlignment="CENTER" textFill="#ff2727">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="InvaildEmail" alignment="CENTER" layoutX="74.0" layoutY="103.0" prefHeight="30.0" prefWidth="320.0" text="WRONG EMAIL OR PASSWORD!" textAlignment="CENTER" textFill="#ff2727">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Group>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

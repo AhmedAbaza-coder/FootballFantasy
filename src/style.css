@@ -1,0 +1,214 @@
+.list-view {
+    -fx-background-color:   #141313;
+    -fx-Pref-Width: 326px;
+    -fx-Pref-Height: 400px;
+}
+.list-cell{
+    -fx-background-color:   #434343;
+    -fx-padding: 4;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-scale-x: 0;
+}
+.list-view .list-cell:hover {
+    -fx-background-color: #434343;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #434343;
+}
+
+.list-view .list-cell {
+    -fx-background-color:  #141313;
+    -fx-text-fill: white;
+}
+
+.list-view .label {
+    -fx-text-fill: white;
+}
+
+.PlayerCard{
+    -fx-background-color:  #2C2C2C;
+}
+.PlayerInformBtn{
+    -fx-pref-width: 44px;
+    -fx-pref-height: 44px;
+    -fx-font-size: 21px;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-style: italic;
+    -fx-margin-right: 10px;
+    -fx-background-color:  #525252;
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+}
+.PlayerName{
+    -fx-font-size: 10px;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-fill: #ffffff;
+}
+.PLayerTeam , .PlayerPostion{
+    -fx-font-size: 10px;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-padding: 10px;
+    -fx-fill: #ffffff;
+}
+.PlayerPrice{
+    -fx-font-size: 15px;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-padding: 10 4 6 7;
+    -fx-fill: #ffffff;
+}
+.TShirtPlayer{
+    -fx-padding: 10px;
+}
+
+.Hbox{
+    -fx-pref-width: 44px;
+    -fx-pref-height: 28px;
+}
+
+.RegisterScene{
+    -fx-background-image:url('images/SplashScreen.png');
+    -fx-background-position: center center;
+    -fx-background-size: 100% 100%;
+}
+
+.AboutPage{
+    -fx-background-image:url("images/bg.png");
+    -fx-background-size: 100% 100%;
+}
+
+/**ALERTS**/
+.dialog-pane{
+    -fx-background-color: #1B1B1B;
+    -fx-background-radius: 20;
+    -fx-background-insets: 0, 1, 2;
+    -fx-effect: dropshadow(two-pass-box , rgba(255, 255, 255, 0.4), 1, 0.0 , 0, 1);
+}
+.dialog-pane .header-panel {
+    -fx-background-color: #1B1B1B;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 20;
+}
+.dialog-pane .header-panel .label{
+    -fx-background-color:#1B1B1B;
+    -fx-font-family: "Premier Sans";
+    -fx-text-fill:white;
+    -fx-font-size:35.0px;
+    -fx-alignment: center;
+}
+.dialog-pane .button{
+    -fx-background-color:#5A1155;
+    -fx-text-fill:white;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size:15.0px;
+    -fx-wrap-text: true;
+    -fx-cursor:hand;
+}
+.dialog-pane .button:hover{
+    -fx-background-color: #8d2887;
+}
+/**/
+/**ComboBox**/
+.combo-box .arrow{
+    -fx-background-color:#8d2887;
+}
+.combo-box .arrow-button{
+    -fx-background-color:#8d2887;
+    -fx-border-style:none;
+}
+.combo-box .arrow-button{
+    -fx-background-color:#1B1B1B;
+}
+.combo-box .list-cell{
+    -fx-background-color:#1B1B1B;
+    -fx-font-family: "Premier Sans";
+    -fx-font-size:25.0px;
+}
+.combo-box .list-view {
+    -fx-background-color:#1B1B1B;
+    -fx-pref-width: 250px;
+    -fx-pref-height: 250px;
+
+}
+.combo-box .list-cell:filled:selected{
+    -fx-text-fill: white;
+}
+/**/
+
+.text-field{
+    -fx-font-family: "Premier Sans";
+    -fx-font-size: 22px;
+    -fx-padding: 8px;
+    -fx-text-fill: White;
+
+}
+
+
+
+
+
+/**********************************************************/
+.playerRectangle{
+    -fx-background-image:url('images/SplashScreen.png');
+    -fx-background-position: center center;
+    -fx-background-radius: 10;
+    -fx-padding: 0;
+}
+
+
+.infobtn{
+    -fx-background-color:#90EE90;
+    -fx-background-radius: 5,5,4;
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-alignment: center;
+}
+.infobtn:hover{
+
+    -fx-background-color:#64EE64;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-alignment: center;
+}
+.busy{
+
+    -fx-background-color:#B3B3B3;
+    -fx-text-alignment: center;
+}
+.busy:hover{
+
+    -fx-background-color:cdcbcb;
+    -fx-text-alignment: center;
+}
+
+
+
+
+
+/*Alert alert = new Alert(Alert.AlertType.CONFIRMATION);*/
+
+/*!*DialogPane dialogPane = alert.getDialogPane();*!*/
+/*dialogPane.getStylesheets().add( getClass().getResource("/xo/style.css").toExternalForm());*/
+
+
+/*alert.setTitle("Empty Folder");*/
+/*alert.setHeaderText("There are no files!!");*/
+/*alert.setContentText("game ended with a tie");*/
+/*alert.showAndWait();*/
+
+
+/*player_list.setOnMouseClicked(new EventHandler<MouseEvent>() {*/
+
+/*@Override*/
+/*public void handle(MouseEvent event) {*/
+/*    System.out.println("clicked on " + player_list.getSelectionModel().getSelectedItem());*/
+
+/*    if (player_list.getSelectionModel().getSelectedItem() != null) {*/
+
+/*}*/
+/*}*/
+/*});*/
+/*Optional<ButtonType> result2 = alert3.showAndWait();*/
+/*if (result2.get() == ButtonType.OK) {*/
