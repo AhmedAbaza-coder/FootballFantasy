@@ -8,8 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -36,19 +34,25 @@
             </ImageView>
             <HBox fx:id="CloseApp" alignment="CENTER" prefHeight="42.0" prefWidth="34.0" spacing="20.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
                <children>
-                  <Line endX="-114.5977783203125" endY="3.0994415283203125E-6" onMouseClicked="#minimize" startX="-100.0" stroke="#3ab555" strokeWidth="4.0">
+                  <ImageView fitHeight="23.0" fitWidth="52.0" layoutX="91.0" layoutY="15.0" onMouseClicked="#minimize" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@minize.png" />
+                     </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </Line>
-                  <Circle fill="#3ab555" onMouseClicked="#maximize" radius="10.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                  </ImageView>
+                  <ImageView fitHeight="23.0" fitWidth="52.0" layoutX="91.0" layoutY="15.0" onMouseClicked="#maximize" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@max.png" />
+                     </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </Circle>
+                  </ImageView>
                   <ImageView fitHeight="23.0" fitWidth="52.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@exitbtn.png" />
+                        <Image url="@close.png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />

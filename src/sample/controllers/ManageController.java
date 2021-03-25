@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.CacheHint;
+import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -40,10 +41,13 @@ public class ManageController implements Initializable, InfoHandler {
     private ImageView PlayerPicInfo,logoIDInfo;
 
     @FXML
-    private Text PlayerNum ,FirstName,LastName,position,clubname,Nationality,PLD,Appearances,Goals;
+    private Text PlayerNum ,Name,position,clubname,Nationality,PLD,Appearances,Goals;
 
     @FXML
-    private Text PlayerNumInfo,FirstNameInfo,LastNameInfo,clubnameInfo,positionInfo;
+    private Text PlayerNumInfo,NameInfo,clubnameInfo,positionInfo;
+
+    @FXML
+    private Text SquadName;
 
     @FXML
     private JFXButton MakeCaptain,ViewInformation;
@@ -81,6 +85,7 @@ public class ManageController implements Initializable, InfoHandler {
     public void initialize(URL location, ResourceBundle resources) {
         PlayerInformation.setVisible(false);
         InformationPopup.setVisible(false);
+        SquadName.setText(user.getSquadName());
         FormationsSelection.setValue("5-4-1");
         initViewSorting();
         PlanSelection();
@@ -139,9 +144,9 @@ public class ManageController implements Initializable, InfoHandler {
         diff = Integer.parseInt(newValue.substring(0, 1));
         mid = Integer.parseInt(newValue.substring(2, 3));
         fw = Integer.parseInt(newValue.substring(4));
-        System.out.println(diff);
-        System.out.println(mid);
-        System.out.println(fw);
+        //System.out.println(diff);
+        //System.out.println(mid);
+        //System.out.println(fw);
         PlayersPaneGK.getChildren().clear();
         PlayersPaneDEF.getChildren().clear();
         PlayersPaneMID.getChildren().clear();
@@ -219,8 +224,7 @@ public class ManageController implements Initializable, InfoHandler {
     }
 
     public void updateInfo(Player item) {
-        FirstNameInfo.setText(item.getFirstName());
-        LastNameInfo.setText(item.getLastName());
+        NameInfo.setText(item.getFirstName()+" "+item.getLastName());
         clubnameInfo.setText(item.getClubName());
         positionInfo.setText(item.getPosition());
         PlayerNumInfo.setText(item.getPlayerNumber()+"");
@@ -248,8 +252,7 @@ public class ManageController implements Initializable, InfoHandler {
         updateInfo(player);
         ViewInformation.setOnAction(event -> {
             PlayerNum.setText(player.getPlayerNumber() + "");
-            FirstName.setText(player.getFirstName());
-            LastName.setText(player.getLastName());
+            Name.setText(player.getFirstName()+" "+player.getLastName());
             clubname.setText(player.getClubName());
             position.setText(player.getPosition());
             Nationality.setText(player.getNationality());
@@ -257,14 +260,14 @@ public class ManageController implements Initializable, InfoHandler {
             Goals.setText(player.getGoals() + "");
             PLD.setText(player.getPld());
 
-//            InputStream stream = null;
-//            try {
-//                stream = new FileInputStream("src/images/" + player.getPictureId());
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            Image image = new Image(stream);
-//            PlayerPic.setImage(image);
+            InputStream stream = null;
+            try {
+                stream = new FileInputStream("src/images/players/" + player.getPictureId());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            Image image = new Image(stream);
+            PlayerPic.setImage(image);
 
             InputStream streamLogo = null;
             try {
@@ -280,7 +283,7 @@ public class ManageController implements Initializable, InfoHandler {
         PlayerInformation.setVisible(true);
     }
     @Override
-    public void makeCaptain(Circle btn) {
+    public void makeCaptain(Group btn) {
         MakeCaptain.setOnAction(event -> {
             for (int i = 0; i < PLAYERS_NUMBER; i++) {
                 PlayerCardManageController playerCard = playerControllers.get(i);

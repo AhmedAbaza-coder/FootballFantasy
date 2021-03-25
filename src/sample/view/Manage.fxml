@@ -53,72 +53,87 @@
                      <children>
                         <HBox alignment="CENTER" layoutY="-1.0" prefHeight="114.0" prefWidth="263.0">
                            <children>
-                              <ImageView fx:id="PlayerPicInfo" fitHeight="111.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@salah.png" />
-                                 </image>
-                              </ImageView>
-                              <VBox prefHeight="114.0" prefWidth="114.0">
+                              <StackPane prefHeight="91.0" prefWidth="111.0">
                                  <children>
-                                    <Text fx:id="PlayerNumInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="11" wrappingWidth="185.4708251953125">
-                                       <font>
-                                          <Font name="PremierSans" size="26.0" />
-                                       </font>
-                                    </Text>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <Group>
                                        <children>
-                                          <Text fx:id="FirstNameInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mohamed" wrappingWidth="83.9375">
-                                             <font>
-                                                <Font name="PremierSans" size="21.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </Text>
-                                          <Text fx:id="LastNameInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Salah" wrappingWidth="72.67071533203125">
-                                             <font>
-                                                <Font name="PremierSans" size="21.0" />
-                                             </font>
-                                          </Text>
+                                          <AnchorPane prefHeight="111.0" prefWidth="118.0">
+                                             <children>
+                                                <ImageView fx:id="PlayerPicInfo" fitHeight="111.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@salah.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
                                        </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="148.0">
-                                       <children>
-                                          <ImageView fx:id="logoIDInfo" fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@liverpool.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text fx:id="clubnameInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LiverPool" wrappingWidth="89.47107696533203">
-                                             <font>
-                                                <Font name="PremierSans" size="22.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Text>
-                                       </children>
-                                    </HBox>
-                                    <Text fx:id="positionInfo" fill="WHITE" layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forward" wrappingWidth="204.6708984375">
-                                       <font>
-                                          <Font name="PremierSans" size="21.0" />
-                                       </font>
-                                    </Text>
+                                    </Group>
                                  </children>
-                              </VBox>
+                              </StackPane>
+                              <StackPane>
+                                 <children>
+                                    <Group>
+                                       <children>
+                                          <VBox prefHeight="114.0" prefWidth="114.0">
+                                             <children>
+                                                <Text fx:id="PlayerNumInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="11" wrappingWidth="185.4708251953125">
+                                                   <font>
+                                                      <Font name="PremierSans" size="26.0" />
+                                                   </font>
+                                                </Text>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Text fx:id="NameInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mohamed" wrappingWidth="179.93756103515625">
+                                                         <font>
+                                                            <Font name="PremierSans" size="21.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="148.0">
+                                                   <children>
+                                                      <ImageView fx:id="logoIDInfo" fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@liverpool.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text fx:id="clubnameInfo" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LiverPool" wrappingWidth="89.47107696533203">
+                                                         <font>
+                                                            <Font name="PremierSans" size="22.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Text fx:id="positionInfo" fill="WHITE" layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forward" wrappingWidth="204.6708984375">
+                                                   <font>
+                                                      <Font name="PremierSans" size="21.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </Group>
+                                 </children>
+                              </StackPane>
                            </children>
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <JFXButton fx:id="MakeCaptain" prefHeight="31.0" prefWidth="296.0" style="-fx-background-color: #2D296F;" text="Make Captain" textFill="WHITE">
+                  <JFXButton fx:id="MakeCaptain" prefHeight="47.0" prefWidth="340.0" style="-fx-background-color: #2D296F;" text="Make Captain" textFill="WHITE">
                      <font>
                         <Font name="PremierSans" size="26.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="ViewInformation" prefHeight="31.0" prefWidth="296.0" style="-fx-background-color: #333333;" text="View Information" textFill="WHITE">
+                  <JFXButton fx:id="ViewInformation" prefHeight="47.0" prefWidth="430.0" style="-fx-background-color: #333333;" text="View Information" textFill="WHITE">
                      <font>
                         <Font name="PremierSans" size="26.0" />
                      </font>
@@ -203,7 +218,7 @@
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="108.0" prefWidth="434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <ImageView fx:id="PlayerPic" fitHeight="137.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="PlayerPic" fitHeight="137.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@salah.png" />
                                              </image>
@@ -217,18 +232,13 @@
                                                 </Text>
                                                 <HBox prefHeight="100.0" prefWidth="200.0">
                                                    <children>
-                                                      <Text fx:id="FirstName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mohamed" wrappingWidth="95.6708984375">
+                                                      <Text fx:id="Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mohamed" wrappingWidth="250.870849609375">
                                                          <font>
                                                             <Font name="PremierSans" size="30.0" />
                                                          </font>
                                                          <HBox.margin>
                                                             <Insets />
                                                          </HBox.margin>
-                                                      </Text>
-                                                      <Text fx:id="LastName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Salah" wrappingWidth="152.6708984375">
-                                                         <font>
-                                                            <Font name="PremierSans" size="30.0" />
-                                                         </font>
                                                       </Text>
                                                    </children>
                                                    <VBox.margin>

@@ -57,12 +57,12 @@ public class MainController extends JFXListView<Player> implements Initializable
 
 
     @FXML
-    private BorderPane SelectSquadPane, LeaguePane;
+    private BorderPane SelectSquadPane, LeaguePane ,AboutPane,HomePane;
     /*
         Components
      */
     @FXML
-    private javafx.scene.layout.BorderPane BorderPane;
+    private BorderPane BorderPane;
 
     @FXML
     private AnchorPane WelcomePage;
@@ -188,71 +188,7 @@ public class MainController extends JFXListView<Player> implements Initializable
         InformationPopup.setVisible(false);
     }
 
-    private double tabWidth = 100;
-    private double tabHeight = 240.0;
-    public static int lastSelectedTabIndex = 0;
 
-    private void configureTabPane() {
-        MainTabPane.setTabMinWidth(tabWidth);
-        MainTabPane.setTabMaxWidth(tabWidth);
-        MainTabPane.setTabMinHeight(tabHeight);
-        MainTabPane.setTabMaxHeight(tabHeight);
-        MainTabPane.setRotateGraphic(true);
-
-        EventHandler<Event> replaceBackgroundColorHandler = event -> {
-            lastSelectedTabIndex = MainTabPane.getSelectionModel().getSelectedIndex();
-
-            Tab currentTab = (Tab) event.getTarget();
-            if (currentTab.isSelected()) {
-                currentTab.setStyle("-fx-background-color: -fx-focus-color;");
-            } else {
-                currentTab.setStyle("-fx-background-color: #141313;");
-            }
-        };
-
-        configureTab(HomeTab, "Home", "images/home.png",replaceBackgroundColorHandler);
-        configureTab(SquadSelectionTab, "Squad", "images/home.png",replaceBackgroundColorHandler);
-        configureTab(ManageTab, "Manage", "images/home.png",replaceBackgroundColorHandler);
-        configureTab(LeagueTab, "League", "images/home.png",replaceBackgroundColorHandler);
-        configureTab(AboutTab, "About", "images/home.png",replaceBackgroundColorHandler);
-    }
-
-    private void configureTab(Tab tab, String title, String iconPath,EventHandler<Event> onSelectionChangedEvent) {
-        double imageWidth = 30.0;
-
-        ImageView imageView = new ImageView(new Image(iconPath));
-        imageView.setFitHeight(imageWidth);
-        imageView.setFitWidth(imageWidth);
-        StackPane stack_pane = new StackPane(imageView);
-        stack_pane.setAlignment(Pos.CENTER);
-        stack_pane.setPadding(new Insets(20, 20, 0, 0));
-
-
-        Label label = new Label(title);
-        label.setMaxWidth(tabWidth - 20);
-        label.setPadding(new Insets(20, 0, 0, 0));
-        label.setStyle("-fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
-        label.setTextAlignment(TextAlignment.CENTER);
-
-        BorderPane tabPane = new BorderPane();
-        tabPane.setRotate(90.0);
-        tabPane.setMaxWidth(tabWidth);
-        tabPane.setPadding(new Insets(30,0,0,0));
-
-
-        tabPane.setLeft(stack_pane);
-        tabPane.setRight(label);
-
-        /// 6.
-        tab.setText("");
-        tab.setGraphic(tabPane);
-
-        tab.setOnSelectionChanged(onSelectionChangedEvent);
-
-
-
-/// 8.
-    }
 
     private AnchorPane LoadPages(String Page) throws IOException {
 
@@ -271,16 +207,16 @@ public class MainController extends JFXListView<Player> implements Initializable
         tabs = MainTabPane.getTabs();
         oldUserTabs = FXCollections.observableArrayList(tabs);
         newUserTab = tabs.get(2);
-        configureTabPane();
 
 
         initTabPane();
         try {
 
-            SelectSquadPane.setCenter(LoadPages("select_squad"));
             LeaguePane.setCenter(LoadPages("league"));
             ManageTeamPane.setCenter(LoadPages("Manage"));
-
+            AboutPane.setCenter(LoadPages("About"));
+            HomePane.setCenter(LoadPages("Home"));
+            SelectSquadPane.setCenter(LoadPages("select_squad"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -306,26 +242,5 @@ public class MainController extends JFXListView<Player> implements Initializable
         initTabPane();
     }
 
-   // @FXML
-//    void logOut(ActionEvent event) {
-//        User.logOutUser();
-//
-//        try {
-//            FXMLLoader fxmlLoader = new FXMLLoader();
-//            fxmlLoader.setLocation(getClass().getResource("../view/register.fxml"));
-//            Parent rootRegister = fxmlLoader.load();
-//            rootRegister.getStylesheets().add("style.css");
-//            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//            JFXToolbar titlebar = FXMLLoader.load(getClass().getResource("../view/stage_titlebar.fxml"));
-//            BorderPane borderPane = new BorderPane();
-//            borderPane.setTop(titlebar);
-//            borderPane.setCenter(rootRegister);
-//            stage.setTitle("Fantasy");
-//            stage.setScene(new Scene(borderPane));
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+
 }

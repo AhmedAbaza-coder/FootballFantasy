@@ -139,7 +139,7 @@ public class SelectSquadController implements Initializable, RemoveHandler {
     }
 
     private void handleListViewSelection() {
-//                ConfirmBtn.setPrefWidth(84);
+//        ConfirmBtn.setPrefWidth(84);
 //        ConfirmBtn.setPrefHeight(37);
 //        InformationPopup.setVisible(false);
 
@@ -206,7 +206,7 @@ public class SelectSquadController implements Initializable, RemoveHandler {
             return index;
         }
 
-        System.out.println("ON");
+        //System.out.println("ON");
 
         playerControllers.get(index).setSelection(player, index);
 

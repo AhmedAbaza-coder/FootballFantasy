@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -42,12 +43,12 @@ public class PlayerCardManageController implements Initializable {
     @FXML
     private JFXButton playerInform;
 
-    public Circle getCaptainSign() {
+    public Group getCaptainSign() {
         return CaptainSign;
     }
 
     @FXML
-    private Circle CaptainSign;
+    private Group CaptainSign;
 
     @FXML
     private JFXButton playerChange;

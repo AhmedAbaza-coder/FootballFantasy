@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -63,6 +64,15 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Circle fx:id="CaptainSign" fill="#0000007b" layoutX="100.0" layoutY="56.0" radius="11.0" stroke="TRANSPARENT" strokeType="INSIDE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="45.0" />
+      <Group fx:id="CaptainSign" layoutX="89.5999984741211" layoutY="59.8134765625">
+         <children>
+            <Circle layoutX="5.0" layoutY="-4.0" radius="11.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Text fill="WHITE" layoutY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C" wrappingWidth="14.759994506835938">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
    </children>
 </AnchorPane>
