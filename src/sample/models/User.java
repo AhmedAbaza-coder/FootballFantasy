@@ -21,6 +21,7 @@ public class User {
     private boolean isNewUser;
     private String formation;
     private List<Player> selectedPlayers;
+    private int totalPoints;
 
     //Static
     private static List<User> sCurrentUsers = AppDatabase.getInstance().getAllUsers();
@@ -54,7 +55,7 @@ public class User {
     }
 
     public User(String firstName, String lastName, String username, String password, String gender, String squadName,
-                List<Player> selectedPlayers, String formation) {
+                List<Player> selectedPlayers, String formation, int totalPoints) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -63,6 +64,7 @@ public class User {
         this.squadName = squadName;
         this.selectedPlayers = selectedPlayers;
         this.formation = formation;
+        this.totalPoints = totalPoints;
     }
 
     public User(User user) {
@@ -224,6 +226,15 @@ public class User {
     public void cutPrice(float price) {
         this.money -= price;
     }
+
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints = totalPoints;
+    }
+
     //Static
 
     public static User getLoggedInUser() {

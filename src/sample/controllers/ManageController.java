@@ -23,6 +23,7 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import sample.customCells.PurchaseCell;
+import sample.database.AppDatabase;
 import sample.models.Player;
 import sample.models.User;
 
@@ -49,7 +50,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     private Text PlayerNum, Name, position, clubname, Nationality, PLD, Appearances, Goals;
 
     @FXML
-    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo,SquadName, TotalPoints;
+    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo, SquadName, TotalPoints;
 
     @FXML
     private JFXButton MakeCaptain, ViewInformation;
@@ -73,6 +74,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     private int diff, mid, fw;
     boolean index = true;
     private List<Player> players;
+    private String plan;
 
     public ManageController() {
     }
@@ -91,16 +93,16 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //
+
         SelectSquadController.squadChangesHandler = this;
 
         SquadName.setText(user.getSquadName());
-//        TotalPoints.setText();
+        TotalPoints.setText(user.getTotalPoints() + "");
         //
         getPlayerCards();
         PlayerInformation.setVisible(false);
         InformationPopup.setVisible(false);
-        FormationsSelection.setValue("5-4-1");
+        FormationsSelection.setValue(user.getFormation());
         initViewSorting();
         PlanSelection();
     }
@@ -149,6 +151,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
         FormationsSelection.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                plan = newValue;
                 positionPlayerCards(newValue);
             }
         });
@@ -385,6 +388,15 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
 
     @FXML
     void confirmManagementChanges(ActionEvent event) {
+        System.out.println("CLICKED");
+//        List<Player> updatedPlayers = new ArrayList<>();
+        for (int i = 0; i < playerControllers.size(); i++) {
+            Player current = playerControllers.get(i).getSelectedPlayer();
+            if (i < 11) current.setStarting(true);
+            else current.setStarting(false);
+            AppDatabase.getInstance().updateUsersSelectedPlayer(current.getPictureId(), current.isStarting());
+        }
 
+        AppDatabase.getInstance().updatePlan(User.getLoggedInUser().getUsername(), plan);
     }
 }

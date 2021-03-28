@@ -48,7 +48,7 @@
                   <Font name="PremierSans" size="83.0" />
                </font>
             </Text>
-            <JFXButton fx:id="confirmBtn" layoutX="32.0" layoutY="780.0" onAction="#confirmManagementChanges" prefHeight="47.0" prefWidth="324.0" style="-fx-background-color: #5A1155;" text="Confirm" textFill="WHITE">
+            <JFXButton fx:id="confirmBtn" layoutX="32.0" layoutY="780.0" onAction="#confirmManagementChanges" prefHeight="47.0" prefWidth="324.0" style="-fx-background-color: #5A1155;" text="Confirm" textFill="WHITE" AnchorPane.bottomAnchor="30.0">
                <font>
                   <Font name="PremierSans" size="26.0" />
                </font>

@@ -61,7 +61,7 @@ public class AppDatabase implements DAO {
     public void insertUser(User user) {
         ResultSet set;
 
-        String sql = "INSERT INTO USERS values (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO USERS values (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user.getSquadName());
@@ -72,6 +72,7 @@ public class AppDatabase implements DAO {
             statement.setString(6, user.getGender());
             statement.setFloat(7, 100.0f);
             statement.setString(8, "4-4-2");
+            statement.setInt(9,0);
             set = statement.executeQuery();
             set.close();
         } catch (SQLException throwables) {
@@ -97,6 +98,7 @@ public class AppDatabase implements DAO {
                 user.setPassword(set.getString("USERPASSWORD"));
                 user.setGender(set.getString("GENDER"));
                 user.setFormation(set.getString("FORMATION"));
+                user.setTotalPoints(set.getInt("POINTS"));
             }
             set.close();
         } catch (SQLException throwables) {
@@ -140,6 +142,7 @@ public class AppDatabase implements DAO {
                 user.setGender(set.getString("GENDER"));
                 user.setMoney(set.getFloat("MONEY"));
                 user.setFormation(set.getString("FORMATION"));
+                user.setTotalPoints(set.getInt("POINTS"));
                 if (!user.isNewUser()) user.setSelectedPlayers(getUserPlayers(user.getUsername()));
                 users.add(user);
             }
@@ -245,7 +248,7 @@ public class AppDatabase implements DAO {
     public List<Player> getUserPlayers(String username) {
         ResultSet set;
         List<Player> players = new ArrayList<>();
-        String sql = "select players.*, selectedplayers.starting, selectedplayers.captain from selectedplayers, players where selectedplayers.playername = players.PLAYERPICID AND selectedplayers.username = ?";
+        String sql = "select players.*, selectedplayers.starting, selectedplayers.captain from selectedplayers, players where selectedplayers.playername = players.PLAYERPICID AND selectedplayers.username = ? ORDER BY STARTING DESC";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
@@ -366,5 +369,36 @@ public class AppDatabase implements DAO {
             throwables.printStackTrace();
         }
     }
+
+    public void updateUsersSelectedPlayer(String id, boolean flag){
+        ResultSet set;
+
+        String sql = "UPDATE selectedplayers SET STARTING = ? WHERE playername = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, String.valueOf(flag));
+            statement.setString(2, id);
+            set = statement.executeQuery();
+            set.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void updatePlan(String username, String plan){
+        ResultSet set;
+
+        String sql = "UPDATE users SET FORMATION = ? WHERE email = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, plan);
+            statement.setString(2, username);
+            set = statement.executeQuery();
+            set.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }
 
