@@ -61,7 +61,7 @@ public class AppDatabase implements DAO {
     public void insertUser(User user) {
         ResultSet set;
 
-        String sql = "INSERT INTO USERS values (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO USERS values (?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user.getSquadName());
@@ -71,6 +71,7 @@ public class AppDatabase implements DAO {
             statement.setString(5, user.getPassword());
             statement.setString(6, user.getGender());
             statement.setFloat(7, 100.0f);
+            statement.setString(8, "4-4-2");
             set = statement.executeQuery();
             set.close();
         } catch (SQLException throwables) {
@@ -95,6 +96,7 @@ public class AppDatabase implements DAO {
                 user.setUsername(set.getString("EMAIL"));
                 user.setPassword(set.getString("USERPASSWORD"));
                 user.setGender(set.getString("GENDER"));
+                user.setFormation(set.getString("FORMATION"));
             }
             set.close();
         } catch (SQLException throwables) {
@@ -137,6 +139,7 @@ public class AppDatabase implements DAO {
                 user.setPassword(set.getString("USERPASSWORD"));
                 user.setGender(set.getString("GENDER"));
                 user.setMoney(set.getFloat("MONEY"));
+                user.setFormation(set.getString("FORMATION"));
                 if (!user.isNewUser()) user.setSelectedPlayers(getUserPlayers(user.getUsername()));
                 users.add(user);
             }
@@ -242,17 +245,22 @@ public class AppDatabase implements DAO {
     public List<Player> getUserPlayers(String username) {
         ResultSet set;
         List<Player> players = new ArrayList<>();
-        String sql = "select players.* from selectedplayers, players where selectedplayers.playername = players.PLAYERPICID AND selectedplayers.username = ?";
+        String sql = "select players.*, selectedplayers.starting, selectedplayers.captain from selectedplayers, players where selectedplayers.playername = players.PLAYERPICID AND selectedplayers.username = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             set = statement.executeQuery();
             while (set.next()) {
                 boolean selection = set.getString(16) == "TRUE" ? true : false;
+                boolean isCaptain = set.getString("CAPTAIN").equalsIgnoreCase("TRUE") ? true : false;
+                boolean isStarting = set.getString("STARTING").equalsIgnoreCase("TRUE") ? true : false;
                 Player player = new Player(set.getString(1), set.getString(2), set.getString(3),
                         set.getString(4), set.getString(5), set.getInt(6), set.getString(7),
                         set.getInt(8), set.getInt(9), set.getInt(10), set.getInt(11),
                         set.getInt(12), set.getFloat(13), selection, set.getString(14));
+
+                player.setCaptain(isCaptain);
+                player.setStarting(isStarting);
 
                 players.add(player);
             }
@@ -323,12 +331,16 @@ public class AppDatabase implements DAO {
             PreparedStatement deleteStatement = connection.prepareStatement(sqlDelete);
             deleteStatement.setString(1, username);
             ResultSet deleteSet = deleteStatement.executeQuery();
+            deleteSet.close();
+            //TODO
 
             for (Player player : selectedPlayers) {
-                String sql = "INSERT INTO SelectedPlayers values (?,?)";
+                String sql = "INSERT INTO SelectedPlayers values (?,?,?,?)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, username);
                 statement.setString(2, player.getPictureId());
+                statement.setString(3, String.valueOf(player.isStarting()));
+                statement.setString(4,String.valueOf(player.isCaptain()));
                 set = statement.executeQuery();
             }
             set.close();

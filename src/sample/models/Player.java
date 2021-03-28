@@ -18,6 +18,8 @@ public class Player {
     private String pld;
     private String clubName;
     private Club club;
+    private boolean isCaptain = false;
+    private boolean isStarting = false;
     private boolean isSelected;
 
     public static List<Player> getRawPlayers() {
@@ -65,6 +67,28 @@ public class Player {
         this.clubName = clubName;
     }
 
+    public Player(String pictureId, String firstName, String lastName, String nationality, String position,
+                  int playerNumber, String pld, int appearance, int cleanSheet, int goals, int assists, int points, float price,
+                  boolean isSelected, String clubName, boolean isCaptain, boolean isStarting) {
+        this.pictureId = pictureId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nationality = nationality;
+        this.position = position;
+        this.playerNumber = playerNumber;
+        this.appearance = appearance;
+        this.cleanSheet = cleanSheet;
+        this.goals = goals;
+        this.assists = assists;
+        this.points = points;
+        this.price = price;
+        this.pld = pld;
+        this.isSelected = isSelected;
+        this.clubName = clubName;
+        this.isCaptain = isCaptain;
+        this.isStarting = isStarting;
+
+    }
 
     @Override
     public String toString() {
@@ -210,12 +234,28 @@ public class Player {
         return club;
     }
 
+    public boolean isCaptain() {
+        return isCaptain;
+    }
+
+    public void setCaptain(boolean captain) {
+        isCaptain = captain;
+    }
+
+    public boolean isStarting() {
+        return isStarting;
+    }
+
+    public void setStarting(boolean starting) {
+        isStarting = starting;
+    }
+
 
     //
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Player){
+        if (obj instanceof Player) {
             Player p = (Player) obj;
             if (getFullName().equals(p.getFullName()) && getClubName().equals(p.getClubName()) && getPosition().equals(p.getPosition()))
                 return true;

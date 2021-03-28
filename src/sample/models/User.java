@@ -19,6 +19,7 @@ public class User {
     private String squadName;
     private float money;
     private boolean isNewUser;
+    private String formation;
     private List<Player> selectedPlayers;
 
     //Static
@@ -50,6 +51,18 @@ public class User {
         this.gender = gender;
         this.squadName = squadName;
         this.selectedPlayers = selectedPlayers;
+    }
+
+    public User(String firstName, String lastName, String username, String password, String gender, String squadName,
+                List<Player> selectedPlayers, String formation) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.squadName = squadName;
+        this.selectedPlayers = selectedPlayers;
+        this.formation = formation;
     }
 
     public User(User user) {
@@ -215,6 +228,14 @@ public class User {
 
     public static User getLoggedInUser() {
         return loggedInUser;
+    }
+
+    public String getFormation() {
+        return formation;
+    }
+
+    public void setFormation(String formation) {
+        this.formation = formation;
     }
 
     public static List<User> getCurrentUsers() {

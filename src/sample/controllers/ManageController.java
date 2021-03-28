@@ -9,6 +9,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     private Text PlayerNum, Name, position, clubname, Nationality, PLD, Appearances, Goals;
 
     @FXML
-    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo;
+    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo,SquadName, TotalPoints;
 
     @FXML
     private JFXButton MakeCaptain, ViewInformation;
@@ -92,6 +93,9 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     public void initialize(URL location, ResourceBundle resources) {
         //
         SelectSquadController.squadChangesHandler = this;
+
+        SquadName.setText(user.getSquadName());
+//        TotalPoints.setText();
         //
         getPlayerCards();
         PlayerInformation.setVisible(false);
@@ -301,6 +305,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
         MakeCaptain.setOnAction(event -> {
             for (int i = 0; i < PLAYERS_NUMBER; i++) {
                 PlayerCardManageController playerCard = playerControllers.get(i);
+
                 playerCard.getCaptainSign().setVisible(false);
             }
             if (index) {
@@ -375,5 +380,11 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     @Override
     public void notifySquadChanges() {
         insertPlayers();
+    }
+
+
+    @FXML
+    void confirmManagementChanges(ActionEvent event) {
+
     }
 }

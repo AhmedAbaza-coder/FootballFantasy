@@ -43,11 +43,16 @@
                   <Font name="PremierSans" size="37.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <Text fx:id="TotalPoints" fill="WHITE" layoutX="173.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                <font>
                   <Font name="PremierSans" size="83.0" />
                </font>
             </Text>
+            <JFXButton fx:id="confirmBtn" layoutX="32.0" layoutY="780.0" onAction="#confirmManagementChanges" prefHeight="47.0" prefWidth="324.0" style="-fx-background-color: #5A1155;" text="Confirm" textFill="WHITE">
+               <font>
+                  <Font name="PremierSans" size="26.0" />
+               </font>
+            </JFXButton>
             <VBox fx:id="PlayerInformation" alignment="CENTER" layoutX="32.0" layoutY="367.0" prefHeight="242.0" prefWidth="316.0" spacing="20.0">
                <children>
                   <AnchorPane prefHeight="114.0" prefWidth="286.0" styleClass="playerRectangle" stylesheets="@../../style.css">
@@ -139,7 +144,7 @@
                         <Font name="PremierSans" size="26.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="substitutionButton" prefHeight="31.0" prefWidth="296.0" style="-fx-background-color: #333333;" text="Substitute" textFill="WHITE">
+                  <JFXButton fx:id="substitutionButton" prefHeight="47.0" prefWidth="361.0" style="-fx-background-color: #333333;" text="Substitute" textFill="WHITE">
                      <font>
                         <Font name="PremierSans" size="26.0" />
                      </font>
@@ -349,9 +354,18 @@
             </Group>
          </children>
       </StackPane>
-      <StackPane fx:id="substitutePane" layoutX="127.0" layoutY="58.0" prefHeight="182.0" prefWidth="484.0" style="-fx-background-color: #1B1B1B; -fx-background-radius: 16;" visible="false">
+      <StackPane fx:id="substitutePane" layoutX="140.0" layoutY="80.0" prefHeight="170.0" prefWidth="438.0" style="-fx-background-color: #1B1B1B; -fx-background-radius: 16;" visible="false">
          <children>
-            <JFXListView fx:id="substituteList" style="-fx-background-color: #0000;" />
+            <VBox alignment="CENTER_RIGHT" prefHeight="153.0" prefWidth="364.0">
+               <children>
+                  <ImageView fx:id="substitute_closebtn" fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@exit.png" />
+                     </image>
+                  </ImageView>
+                  <JFXListView fx:id="substituteList" prefHeight="126.0" prefWidth="386.0" style="-fx-background-color: #0000;" />
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
