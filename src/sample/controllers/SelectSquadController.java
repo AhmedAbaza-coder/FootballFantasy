@@ -362,6 +362,7 @@ public class SelectSquadController implements Initializable, RemoveHandler {
                 handler.handleConfirm();
             }
             User.getLoggedInUser().setSelectedPlayers(selectedPlayers);
+            User.getLoggedInUser().setSquadName(SquadNameText.getText());
             AppDatabase.getInstance().confirmUser(loggedInUser.getUsername(), selectedPlayers);
             AppDatabase.getInstance().confirmSquadName(loggedInUser.getUsername(), SquadNameText.getText(), loggedInUser.getMoney());
 //            User.refreshLoggedInUser();
