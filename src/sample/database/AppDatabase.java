@@ -61,7 +61,7 @@ public class AppDatabase implements DAO {
     public void insertUser(User user) {
         ResultSet set;
 
-        String sql = "INSERT INTO USERS values (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO USERS (SQUADNAME, FNAME, LNAME, EMAIL, USERPASSWORD, GENDER, MONEY, FORMATION, POINTS) values (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user.getSquadName());
@@ -338,7 +338,7 @@ public class AppDatabase implements DAO {
             //TODO
 
             for (Player player : selectedPlayers) {
-                String sql = "INSERT INTO SelectedPlayers values (?,?,?,?)";
+                String sql = "INSERT INTO SelectedPlayers (username, playername, starting, captain) values (?,?,?,?)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, username);
                 statement.setString(2, player.getPictureId());
