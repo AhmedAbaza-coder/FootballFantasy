@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="115.0" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PlayerCardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="115.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PlayerCardController">
    <children>
       <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="115.0" prefWidth="115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -42,9 +42,9 @@
       </VBox>
       <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="21.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <JFXButton fx:id="buttonRemove" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#removeButtonClicked" prefHeight="25.0" prefWidth="22.0" style="-fx-background-color: #000; -fx-background-radius: 5;" text="x" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton fx:id="buttonRemove" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#removeButtonClicked" prefHeight="25.0" prefWidth="22.0" style="-fx-background-color: #000; -fx-background-radius: 5;" text="X" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="8.0" />
+                  <Font name="PremierSans" size="11.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />

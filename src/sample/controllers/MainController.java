@@ -218,6 +218,7 @@ public class MainController extends JFXListView<Player> implements Initializable
             HomePane.setCenter(LoadPages("Home"));
             SelectSquadPane.setCenter(LoadPages("select_squad"));
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }

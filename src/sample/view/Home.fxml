@@ -489,7 +489,7 @@
                                     <Font name="PremierSans" size="27.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" wrappingWidth="48.682281494140625">
+                              <Text fx:id="total_point" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" wrappingWidth="39.882293701171875">
                                  <font>
                                     <Font name="Segoe UI Bold" size="17.0" />
                                  </font>

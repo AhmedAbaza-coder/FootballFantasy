@@ -19,7 +19,7 @@ table-view .filler{
     -fx-alignment:CENTER;
     -fx-font-weight:bold;
     -fx-text-fill: white;
-    -fx-font-size: 22px;
+    -fx-font-size: 35px;
 }
 .table-column {
     -fx-alignment: CENTER;
@@ -45,7 +45,7 @@ table-view .filler{
 
 .table-row-cell{
     -fx-text-background-color: #fff;
-    -fx-padding: 10px;
+    /*-fx-padding: 10px;*/
     -fx-font-size: 16pt;
     -fx-background-color: #0000;
 }

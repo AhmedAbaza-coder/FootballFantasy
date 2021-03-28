@@ -3,11 +3,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="1097.0" style="-fx-background-image: url(&quot;images/bg.png&quot;);" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LeagueController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="1097.0" style="-fx-background-image: url(&quot;images/bg.png&quot;);" stylesheets="@../../league_styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LeagueController">
    <children>
-      <TableView fx:id="LeagueTable" centerShape="false" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #0000;" stylesheets="@../../league_styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="150.0">
+      <TableView fx:id="LeagueTable" centerShape="false" layoutY="146.0" prefHeight="715.0" prefWidth="1037.0" style="-fx-background-color: #0000;" stylesheets="@../../league_styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="146.0">
         <columns>
             <TableColumn fx:id="RankColumn" editable="false" maxWidth="1000.0" prefWidth="75.0" sortable="false" text="Rank" />
             <TableColumn fx:id="NameColumn" editable="false" prefWidth="75.0" sortable="false" text="Name" />
@@ -19,5 +20,25 @@
          </columnResizePolicy>
       </TableView>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 50; -fx-font-weight: bold;" text="Leaderboard" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="40.0" />
+      <Text fill="WHITE" layoutX="49.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rank" textAlignment="CENTER" visible="false" wrappingWidth="62.670005798339844">
+         <font>
+            <Font name="PremierSans" size="40.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="296.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" visible="false" wrappingWidth="89.33666229248047">
+         <font>
+            <Font name="PremierSans" size="40.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="685.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Squad" textAlignment="CENTER" visible="false" wrappingWidth="89.33666229248047">
+         <font>
+            <Font name="PremierSans" size="40.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="961.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points" textAlignment="CENTER" visible="false" wrappingWidth="89.33666229248047">
+         <font>
+            <Font name="PremierSans" size="40.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

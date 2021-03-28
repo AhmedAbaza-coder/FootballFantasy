@@ -20,7 +20,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import sample.customCells.PurchaseCell;
 import sample.database.AppDatabase;
@@ -50,7 +49,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     private Text PlayerNum, Name, position, clubname, Nationality, PLD, Appearances, Goals;
 
     @FXML
-    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo, SquadName, TotalPoints;
+    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo, SquadName, TotalPoints,TeamUpdated;
 
     @FXML
     private JFXButton MakeCaptain, ViewInformation;
@@ -100,6 +99,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
         TotalPoints.setText(user.getTotalPoints() + "");
         //
         getPlayerCards();
+        TeamUpdated.setVisible(false);
         PlayerInformation.setVisible(false);
         InformationPopup.setVisible(false);
         FormationsSelection.setValue(user.getFormation());
@@ -336,6 +336,11 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
         handleListViewSelection(substitutedIndex);
     }
 
+    @FXML
+    void ClosePane(MouseEvent event) {
+        substitutePane.setVisible(false);
+    }
+
 
     private void initListView(String position) {
         players = new ArrayList<>(user.getSelectedPlayers());
@@ -389,6 +394,7 @@ public class ManageController implements Initializable, InfoHandler, SquadChange
     @FXML
     void confirmManagementChanges(ActionEvent event) {
         System.out.println("CLICKED");
+        TeamUpdated.setVisible(true);
 //        List<Player> updatedPlayers = new ArrayList<>();
         for (int i = 0; i < playerControllers.size(); i++) {
             Player current = playerControllers.get(i).getSelectedPlayer();
