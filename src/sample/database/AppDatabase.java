@@ -21,7 +21,6 @@ public class AppDatabase implements DAO {
 
     private static AppDatabase sInstance;
     private Connection connection;
-    private ResultSet set;
 
 
     private AppDatabase() {
@@ -60,6 +59,8 @@ public class AppDatabase implements DAO {
 
     @Override
     public void insertUser(User user) {
+        ResultSet set;
+
         String sql = "INSERT INTO USERS values (?,?,?,?,?,?,?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -71,6 +72,7 @@ public class AppDatabase implements DAO {
             statement.setString(6, user.getGender());
             statement.setFloat(7, 100.0f);
             set = statement.executeQuery();
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -78,6 +80,8 @@ public class AppDatabase implements DAO {
 
     @Override
     public User getUser(String username) {
+        ResultSet set;
+
         User user = new User();
         String sql = "SELECT * FROM USERS WHERE EMAIL = ?";
         try {
@@ -92,6 +96,7 @@ public class AppDatabase implements DAO {
                 user.setPassword(set.getString("USERPASSWORD"));
                 user.setGender(set.getString("GENDER"));
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -115,6 +120,8 @@ public class AppDatabase implements DAO {
      */
     @Override
     public List<User> getAllUsers() {
+        ResultSet set;
+
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM USERS";
 
@@ -130,9 +137,10 @@ public class AppDatabase implements DAO {
                 user.setPassword(set.getString("USERPASSWORD"));
                 user.setGender(set.getString("GENDER"));
                 user.setMoney(set.getFloat("MONEY"));
-                if(!user.isNewUser()) user.setSelectedPlayers(getUserPlayers(user.getUsername()));
+                if (!user.isNewUser()) user.setSelectedPlayers(getUserPlayers(user.getUsername()));
                 users.add(user);
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -142,6 +150,7 @@ public class AppDatabase implements DAO {
 
     @Override
     public List<Club> getAllClubs() {
+        ResultSet set;
         List<Club> clubs = new ArrayList<>();
         String sql = "SELECT * FROM CLUB";
         try {
@@ -151,6 +160,7 @@ public class AppDatabase implements DAO {
                 Club club = new Club(set.getString(2), set.getString(1), set.getString(3));
                 clubs.add(club);
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -159,6 +169,7 @@ public class AppDatabase implements DAO {
 
     @Override
     public Player getPlayer(String id) {
+        ResultSet set;
         Player player = null;
         String sql = "SELECT * FROM PLAYERS WHERE playerpicid = ?";
         try {
@@ -174,6 +185,7 @@ public class AppDatabase implements DAO {
 
 
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -182,6 +194,7 @@ public class AppDatabase implements DAO {
 
     @Override
     public List<Player> getAllPlayers() {
+        ResultSet set;
         List<Player> players = new ArrayList<>();
         String sql = "SELECT * FROM PLAYERS";
         try {
@@ -196,6 +209,7 @@ public class AppDatabase implements DAO {
 
                 players.add(player);
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -203,6 +217,7 @@ public class AppDatabase implements DAO {
     }
 
     public List<Player> getAllSelectedPlayers() {
+        ResultSet set;
         List<Player> players = new ArrayList<>();
         String sql = "select players.* from selectedplayers, players where selectedplayers.playername = players.PLAYERPICID";
         try {
@@ -217,6 +232,7 @@ public class AppDatabase implements DAO {
 
                 players.add(player);
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -224,12 +240,13 @@ public class AppDatabase implements DAO {
     }
 
     public List<Player> getUserPlayers(String username) {
+        ResultSet set;
         List<Player> players = new ArrayList<>();
         String sql = "select players.* from selectedplayers, players where selectedplayers.playername = players.PLAYERPICID AND selectedplayers.username = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
-            ResultSet set = statement.executeQuery();
+            set = statement.executeQuery();
             while (set.next()) {
                 boolean selection = set.getString(16) == "TRUE" ? true : false;
                 Player player = new Player(set.getString(1), set.getString(2), set.getString(3),
@@ -248,6 +265,7 @@ public class AppDatabase implements DAO {
 
     @Override
     public List<Player> getPlayersByPosition(String position) {
+        ResultSet set;
         List<Player> players = new ArrayList<>();
         String sql = "SELECT * FROM PLAYERS WHERE position = ?";
         try {
@@ -263,6 +281,7 @@ public class AppDatabase implements DAO {
 
                 players.add(player);
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -271,6 +290,7 @@ public class AppDatabase implements DAO {
 
     @Override
     public List<Player> getPlayersByClub(String clubName) {
+        ResultSet set;
         List<Player> players = new ArrayList<>();
         String sql = "SELECT * FROM PLAYERS WHERE CLUBNAME = ?";
         try {
@@ -287,6 +307,7 @@ public class AppDatabase implements DAO {
 //                player.setClubObject(set.getString(14));
                 players.add(player);
             }
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -295,6 +316,7 @@ public class AppDatabase implements DAO {
 
     @Override
     public void confirmUser(String username, List<Player> selectedPlayers) {
+        ResultSet set = null;
 
         try {
             String sqlDelete = "DELETE FROM selectedPlayers WHERE username = ?";
@@ -307,16 +329,18 @@ public class AppDatabase implements DAO {
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, username);
                 statement.setString(2, player.getPictureId());
-                ResultSet set = statement.executeQuery();
+                set = statement.executeQuery();
             }
-        }catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+            set.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
 
     }
 
     public void confirmSquadName(String username, String squadName, float money) {
+        ResultSet set;
 
         String sql = "UPDATE users SET squadname = ?, money = ? WHERE email = ?";
         try {
@@ -325,6 +349,7 @@ public class AppDatabase implements DAO {
             statement.setFloat(2, money);
             statement.setString(3, username);
             set = statement.executeQuery();
+            set.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

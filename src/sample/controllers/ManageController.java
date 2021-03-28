@@ -2,12 +2,14 @@ package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,8 +21,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import sample.customCells.PurchaseCell;
 import sample.models.Player;
 import sample.models.User;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,31 +33,28 @@ import java.net.URL;
 import java.util.*;
 
 
-public class ManageController implements Initializable, InfoHandler {
+public class ManageController implements Initializable, InfoHandler, SquadChangesHandler {
 
     @FXML
-    private StackPane  InformationPopup;
+    private StackPane InformationPopup;
 
     @FXML
-    private ImageView PlayerPic,logoID;
+    private ImageView PlayerPic, logoID;
 
     @FXML
-    private ImageView PlayerPicInfo,logoIDInfo;
+    private ImageView PlayerPicInfo, logoIDInfo;
 
     @FXML
-    private Text PlayerNum ,Name,position,clubname,Nationality,PLD,Appearances,Goals;
+    private Text PlayerNum, Name, position, clubname, Nationality, PLD, Appearances, Goals;
 
     @FXML
-    private Text PlayerNumInfo,NameInfo,clubnameInfo,positionInfo;
+    private Text PlayerNumInfo, NameInfo, clubnameInfo, positionInfo;
 
     @FXML
-    private Text SquadName;
+    private JFXButton MakeCaptain, ViewInformation;
 
     @FXML
-    private JFXButton MakeCaptain,ViewInformation;
-
-    @FXML
-    private HBox PlayersPaneGK,PlayersPaneDEF,PlayersPaneMID,PlayersPaneFW,PlayersPaneSUB;
+    private HBox PlayersPaneGK, PlayersPaneDEF, PlayersPaneMID, PlayersPaneFW, PlayersPaneSUB;
 
     @FXML
     private VBox PlayerInformation;
@@ -61,12 +62,18 @@ public class ManageController implements Initializable, InfoHandler {
     @FXML
     private JFXComboBox<String> FormationsSelection;
 
+    @FXML
+    private StackPane substitutePane;
+
+    @FXML
+    private JFXListView<Player> substituteList;
+
     final int PLAYERS_NUMBER = 15;
-    private int diff,mid,fw;
-    boolean index= true;
+    private int diff, mid, fw;
+    boolean index = true;
+    private List<Player> players;
 
     public ManageController() {
-        getPlayerCards();
     }
 
     @FXML
@@ -83,9 +90,12 @@ public class ManageController implements Initializable, InfoHandler {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //
+        SelectSquadController.squadChangesHandler = this;
+        //
+        getPlayerCards();
         PlayerInformation.setVisible(false);
         InformationPopup.setVisible(false);
-        SquadName.setText(user.getSquadName());
         FormationsSelection.setValue("5-4-1");
         initViewSorting();
         PlanSelection();
@@ -144,9 +154,9 @@ public class ManageController implements Initializable, InfoHandler {
         diff = Integer.parseInt(newValue.substring(0, 1));
         mid = Integer.parseInt(newValue.substring(2, 3));
         fw = Integer.parseInt(newValue.substring(4));
-        //System.out.println(diff);
-        //System.out.println(mid);
-        //System.out.println(fw);
+        System.out.println(diff);
+        System.out.println(mid);
+        System.out.println(fw);
         PlayersPaneGK.getChildren().clear();
         PlayersPaneDEF.getChildren().clear();
         PlayersPaneMID.getChildren().clear();
@@ -170,9 +180,12 @@ public class ManageController implements Initializable, InfoHandler {
                 PlayersPaneSUB.getChildren().add(card);
             }
         }
-        insertPlayers();
+        if (!User.getLoggedInUser().isNewUser())
+            insertPlayers();
     }
 
+
+    //TODO
     private void insertPlayers() {
         List<Player> getPlayers = new ArrayList<>(user.getSelectedPlayers());
         getPlayers.forEach(player -> {
@@ -186,22 +199,22 @@ public class ManageController implements Initializable, InfoHandler {
 //            System.out.println(hasNext + " " +  i);
             for (Player player : getPlayers) {
                 if (player.getPosition().equals(Player.P_GK) && indexGK == 0 && i == 0 && !player.isSelected()) {
-                    playerCard.setSelection(player);
+                    playerCard.setSelection(player, i);
                     player.setSelected(true);
                     indexGK++;
                     break;
                 } else if (player.getPosition().equals(Player.P_DEF) && indexDEF < diff && i > 0 && i <= diff && !player.isSelected()) {
-                    playerCard.setSelection(player);
+                    playerCard.setSelection(player, i);
                     player.setSelected(true);
                     indexDEF++;
                     break;
                 } else if (player.getPosition().equals(Player.P_MID) && indexMID < diff + mid && i >= diff + 1 && i <= diff + mid && !player.isSelected()) {
-                    playerCard.setSelection(player);
+                    playerCard.setSelection(player, i);
                     player.setSelected(true);
                     indexMID++;
                     break;
                 } else if (player.getPosition().equals(Player.P_FW) && indexFW < diff + mid + fw && i >= diff + mid + 1 && i <= diff + mid + fw && !player.isSelected()) {
-                    playerCard.setSelection(player);
+                    playerCard.setSelection(player, i);
                     indexFW++;
                     player.setSelected(true);
 
@@ -215,7 +228,7 @@ public class ManageController implements Initializable, InfoHandler {
         for (int i = 11; i < 15; i++) {
             Player player = getPlayers.get(j);
             PlayerCardManageController playerCard = playerControllers.get(i);
-            playerCard.setSelection(player);
+            playerCard.setSelection(player, i);
             player.setSelected(true);
             j++;
         }
@@ -224,10 +237,10 @@ public class ManageController implements Initializable, InfoHandler {
     }
 
     public void updateInfo(Player item) {
-        NameInfo.setText(item.getFirstName()+" "+item.getLastName());
+        NameInfo.setText(item.getFirstName() + " " + item.getLastName());
         clubnameInfo.setText(item.getClubName());
         positionInfo.setText(item.getPosition());
-        PlayerNumInfo.setText(item.getPlayerNumber()+"");
+        PlayerNumInfo.setText(item.getPlayerNumber() + "");
         InputStream streamLogo = null;
         try {
             streamLogo = new FileInputStream("src/images/" + item.getClub().getLogoId());
@@ -252,7 +265,7 @@ public class ManageController implements Initializable, InfoHandler {
         updateInfo(player);
         ViewInformation.setOnAction(event -> {
             PlayerNum.setText(player.getPlayerNumber() + "");
-            Name.setText(player.getFirstName()+" "+player.getLastName());
+            Name.setText(player.getFirstName() + " " + player.getLastName());
             clubname.setText(player.getClubName());
             position.setText(player.getPosition());
             Nationality.setText(player.getNationality());
@@ -282,6 +295,7 @@ public class ManageController implements Initializable, InfoHandler {
         });
         PlayerInformation.setVisible(true);
     }
+
     @Override
     public void makeCaptain(Group btn) {
         MakeCaptain.setOnAction(event -> {
@@ -289,21 +303,77 @@ public class ManageController implements Initializable, InfoHandler {
                 PlayerCardManageController playerCard = playerControllers.get(i);
                 playerCard.getCaptainSign().setVisible(false);
             }
-            if(index){
+            if (index) {
                 btn.setVisible(true);
-                index =true;
-            }
-            else {
+                index = true;
+            } else {
                 btn.setVisible(false);
-                index =false;
+                index = false;
             }
         });
     }
+
     @Override
     public void Changebtn() {
-            for (int i = 0; i < PLAYERS_NUMBER; i++) {
-                PlayerCardManageController playerCard = playerControllers.get(i);
-                playerCard.getPlayerInform().setStyle("-fx-background-color: #1b1b1b");
+        for (int i = 0; i < PLAYERS_NUMBER; i++) {
+            PlayerCardManageController playerCard = playerControllers.get(i);
+            playerCard.getPlayerInform().setStyle("-fx-background-color: #1b1b1b");
+        }
+    }
+
+    @Override
+    public void substitutePlayer(int substitutedIndex, Player substitutedPlayer) {
+        substitutePane.setVisible(true);
+        initListView(substitutedPlayer.getPosition());
+        handleListViewSelection(substitutedIndex);
+    }
+
+
+    private void initListView(String position) {
+        players = new ArrayList<>(user.getSelectedPlayers());
+        players.removeIf(player -> !player.getPosition().equals(position));
+        ObservableList<Player> list = FXCollections.observableArrayList(players);
+        substituteList.setItems(list);
+        substituteList.setCellFactory(param -> new PurchaseCell());
+
+
+    }
+
+    private void handleListViewSelection(int firstIndex) {
+
+        substituteList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                int secondIndex = -1;
+                System.out.println("clicked on " + substituteList.getSelectionModel().getSelectedItem());
+                Player p = substituteList.getSelectionModel().getSelectedItem();
+//                System.out.println("clicked on " + p.getPosition());
+                if (substituteList.getSelectionModel().getSelectedItem() != null) {
+
+                    for (PlayerCardManageController current : playerControllers) {
+                        if (current.getSelectedPlayer().equals(p)) {
+                            secondIndex = current.getPlayerIndex();
+                            break;
+                        }
+
+                    }
+                    if (secondIndex >= 0) {
+                        PlayerCardManageController firstController = playerControllers.get(firstIndex),
+                                secondController = playerControllers.get(secondIndex);
+                        Player firstPlayer = firstController.getSelectedPlayer();
+                        Player secondPlayer = secondController.getSelectedPlayer();
+                        firstController.setSelection(secondPlayer, firstIndex);
+                        secondController.setSelection(firstPlayer, secondIndex);
+                        substitutePane.setVisible(false);
+                    }
+
+                }
             }
+        });
+    }
+
+    @Override
+    public void notifySquadChanges() {
+        insertPlayers();
     }
 }

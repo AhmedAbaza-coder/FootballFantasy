@@ -12,5 +12,7 @@ public interface InfoHandler {
 
     void Changebtn();
 
+    void substitutePlayer (int substitutedIndex, Player substitutedPlayer);
+
 
 }

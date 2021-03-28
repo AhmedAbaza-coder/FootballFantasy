@@ -87,6 +87,7 @@ public class SelectSquadController implements Initializable, RemoveHandler {
     int forwardIndex = 12;
     private User loggedInUser = User.getLoggedInUser();
     public static NewUserConfirmHandler handler;
+    public static SquadChangesHandler squadChangesHandler;
 
     /*
         Logic
@@ -360,8 +361,11 @@ public class SelectSquadController implements Initializable, RemoveHandler {
                 loggedInUser.setSquadName(SquadNameText.getText());
                 handler.handleConfirm();
             }
+            User.getLoggedInUser().setSelectedPlayers(selectedPlayers);
             AppDatabase.getInstance().confirmUser(loggedInUser.getUsername(), selectedPlayers);
             AppDatabase.getInstance().confirmSquadName(loggedInUser.getUsername(), SquadNameText.getText(), loggedInUser.getMoney());
+//            User.refreshLoggedInUser();
+            squadChangesHandler.notifySquadChanges();
         }
     }
 

@@ -53,7 +53,9 @@ public class PlayerCardManageController implements Initializable {
     @FXML
     private JFXButton playerChange;
 
+
     private Player selectedPlayer;
+    int playerIndex;
 
     public void setName(String name) {
         playerName.setText(name);
@@ -64,10 +66,10 @@ public class PlayerCardManageController implements Initializable {
     }
 
 
-    public void setSelection(Player player) {
+    public void setSelection(Player player, int index) {
         // isSelected = true;
         selectedPlayer = player;
-        // playerIndex = index;
+        playerIndex = index;
         InputStream stream = null;
         try {
 //            stream = new FileInputStream("src/images/" + player.getClub().getLogoId());
@@ -97,13 +99,26 @@ public class PlayerCardManageController implements Initializable {
         Info.makeCaptain(CaptainSign);
 
     }
+
+
+    public Player getSelectedPlayer() {
+        return selectedPlayer;
+    }
+
+    public int getPlayerIndex() {
+        return playerIndex;
+    }
+
     public void changeCaptainSign(){
         CaptainSign.setVisible(false);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      CaptainSign.setVisible(false);
+        CaptainSign.setVisible(false);
+        playerChange.setOnAction(event -> {
+            Info.substitutePlayer(playerIndex,selectedPlayer);
+        });
     }
 
 

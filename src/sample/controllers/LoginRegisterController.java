@@ -99,6 +99,7 @@ public class LoginRegisterController implements Initializable {
                 System.out.println("REGISTERED");
                 RegisterForm.setVisible(false);
                 LoginForm.setVisible(true);
+                User.setCurrentUsers(AppDatabase.getInstance().getAllUsers());
             }
 
         }

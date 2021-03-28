@@ -16,10 +16,13 @@ table-view .filler{
 }
 .table-view .column-header .label{
     -fx-background-color: #0000;
-    -fx-alignment:CENTER_LEFT;
+    -fx-alignment:CENTER;
     -fx-font-weight:bold;
     -fx-text-fill: white;
     -fx-font-size: 22px;
+}
+.table-column {
+    -fx-alignment: CENTER;
 }
 
 .table-view .column-header {
@@ -36,7 +39,7 @@ table-view .filler{
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #444;
+    -fx-background-color: transparent;
     -fx-text-background-color: #fff;
 }
 

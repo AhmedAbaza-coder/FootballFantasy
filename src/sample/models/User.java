@@ -116,6 +116,14 @@ public class User {
         return password.length() >= 8;
     }
 
+    public static void refreshLoggedInUser() {
+        sCurrentUsers = AppDatabase.getInstance().getAllUsers();
+        sCurrentUsers.forEach(user -> {
+            if (user.getUsername().equalsIgnoreCase(loggedInUser.getUsername()))
+                loggedInUser = user;
+        });
+    }
+
     /*
         Getters & Setters
      */
@@ -161,7 +169,7 @@ public class User {
     }
 
     public List<Player> getSelectedPlayers() {
-        if(selectedPlayers.get(0).getClub() == null)
+        if (selectedPlayers.get(0).getClub() == null)
             selectedPlayers.forEach(player -> player.setClubObject());
 
         System.out.println(selectedPlayers);
