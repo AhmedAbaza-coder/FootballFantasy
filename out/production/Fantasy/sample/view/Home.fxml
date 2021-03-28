@@ -43,12 +43,7 @@
                               <Font name="PremierSans" size="56.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frist" wrappingWidth="84.53661346435547">
-                           <font>
-                              <Font name="PremierSans" size="56.0" />
-                           </font>
-                        </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Last" wrappingWidth="83.73662567138672">
+                        <Text fx:id="userName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frist" wrappingWidth="354.9365997314453">
                            <font>
                               <Font name="PremierSans" size="56.0" />
                            </font>
@@ -419,7 +414,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fill="WHITE" layoutX="53.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARETA" wrappingWidth="104.05438232421875">
+                        <Text fx:id="bestSquad" fill="WHITE" layoutX="53.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MARETA" wrappingWidth="104.05438232421875">
                            <font>
                               <Font name="Segoe UI Bold" size="25.0" />
                            </font>
@@ -434,7 +429,7 @@
                                     <Font name="PremierSans" size="27.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" wrappingWidth="48.682281494140625">
+                              <Text fx:id="bestSquadPoints" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" wrappingWidth="48.682281494140625">
                                  <font>
                                     <Font name="Segoe UI Bold" size="17.0" />
                                  </font>
@@ -540,12 +535,12 @@
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="248.0" spacing="10.0">
                            <children>
-                              <ImageView fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="tshirt" fitHeight="67.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/LiverpoolShirt.png" />
                                  </image>
                               </ImageView>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Salah">
+                              <Text fx:id="PlayerName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Salah">
                                  <font>
                                     <Font name="PremierSans" size="70.0" />
                                  </font>
@@ -576,7 +571,7 @@
                                     </LinearGradient>
                                  </fill>
                               </Rectangle>
-                              <Text fill="WHITE" layoutX="58.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19 Points" wrappingWidth="133.48228454589844">
+                              <Text fx:id="Playerpoint" fill="WHITE" layoutX="58.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19 Points" wrappingWidth="133.48228454589844">
                                  <font>
                                     <Font name="PremierSans" size="46.0" />
                                  </font>
