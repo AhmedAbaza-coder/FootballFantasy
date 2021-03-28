@@ -24,7 +24,6 @@ public class Main extends Application {
     @Override
     public void start( Stage primaryStage) throws Exception {
 
-
         Parent root = FXMLLoader.load(getClass().getResource("../view/register.fxml"));
         JFXToolbar titlebar = FXMLLoader.load(getClass().getResource("../view/stage_titlebar.fxml"));
         BorderPane borderPane = new BorderPane();
@@ -40,5 +39,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         System.out.println(Player.getRawPlayers().size());
-        launch(args); }
+        launch(args);
+    }
 }

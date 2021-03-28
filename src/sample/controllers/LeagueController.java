@@ -44,10 +44,11 @@ public class LeagueController implements Initializable {
 
     private ObservableList<User> getUsers() {
         List<User> usersList = User.getCurrentUsers();
+        usersList.sort(User.BY_POINTS.reversed());
+
         for (int i = 0; i < usersList.size(); i++)
             usersList.get(i).setRank(i + 1);
 
-        usersList.sort(User.BY_POINTS);
         ObservableList<User> users = FXCollections.observableArrayList(usersList);
         //System.out.println(users);
         return users;
