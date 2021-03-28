@@ -37,14 +37,17 @@ public class LeagueController implements Initializable {
         NameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("FirstName"));
         ///EmailColumn.setCellValueFactory(new PropertyValueFactory<User, String>("Username"));
         SquadColumn.setCellValueFactory(new PropertyValueFactory<User, String>("SquadName"));
-        PointsColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("Points"));
+        PointsColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("totalPoints"));
         LeagueTable.setItems(getUsers());
 
     }
 
     private ObservableList<User> getUsers() {
         List<User> usersList = User.getCurrentUsers();
-        usersList.sort(User.BY_RANK);
+        for (int i = 0; i < usersList.size(); i++)
+            usersList.get(i).setRank(i + 1);
+
+        usersList.sort(User.BY_POINTS);
         ObservableList<User> users = FXCollections.observableArrayList(usersList);
         //System.out.println(users);
         return users;

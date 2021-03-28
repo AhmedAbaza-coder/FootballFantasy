@@ -265,6 +265,8 @@ public class User {
      */
 
     public static final Comparator<User> BY_RANK = Comparator.comparingInt(User::getRank);
+    public static final Comparator<User> BY_POINTS = Comparator.comparingInt(User::getTotalPoints);
+
 
     @Override
     public String toString() {
