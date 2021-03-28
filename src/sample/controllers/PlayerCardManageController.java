@@ -81,7 +81,7 @@ public class PlayerCardManageController implements Initializable {
         Image image = new Image(stream);
         playerImage.setImage(image);
         playerName.setText(player.getLastName());
-        playerPrice.setText(player.getPrice() + "");
+        playerPrice.setText(player.getPoints() + "");
     }
 
     @FXML

@@ -400,5 +400,56 @@ public class AppDatabase implements DAO {
         }
     }
 
+    public User getBestSquadUser() {
+        ResultSet set;
+        User user=new User();
+        String sql = "SELECT * FROM USERS order by points desc";
+
+        try {
+            Statement statement = connection.createStatement();
+            set = statement.executeQuery(sql);
+            while (set != null && set.next()) {
+                 user = new User();
+                user.setSquadName(set.getString("SQUADNAME"));
+                user.setFirstName(set.getString("FNAME"));
+                user.setLastName(set.getString("LNAME"));
+                user.setUsername(set.getString("EMAIL"));
+                user.setPassword(set.getString("USERPASSWORD"));
+                user.setGender(set.getString("GENDER"));
+                user.setMoney(set.getFloat("MONEY"));
+                user.setFormation(set.getString("FORMATION"));
+                user.setTotalPoints(set.getInt("POINTS"));
+                if (!user.isNewUser()) user.setSelectedPlayers(getUserPlayers(user.getUsername()));
+                break;
+            }
+            set.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return user;
+    }
+    public Player getBestPlayer() {
+        ResultSet set;
+        Player player = null;
+        String sql = "SELECT * FROM PLAYERS order by points desc ";
+        try {
+             Statement statement = connection.prepareStatement(sql);
+            set =statement.executeQuery(sql);
+            while (set.next()) {
+                boolean selection = set.getString(16) == "TRUE" ? true : false;
+                player = new Player(set.getString(1), set.getString(2), set.getString(3),
+                        set.getString(4), set.getString(5), set.getInt(6), set.getString(7),
+                        set.getInt(8), set.getInt(9), set.getInt(10), set.getInt(11),
+                        set.getInt(12), set.getFloat(13), selection, set.getString(14));
+
+                 break;
+            }
+            set.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return player;
+    }
+
 }
 
