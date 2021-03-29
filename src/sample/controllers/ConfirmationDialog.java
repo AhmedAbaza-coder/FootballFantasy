@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.StageStyle;
 
 public class ConfirmationDialog {
@@ -19,7 +20,9 @@ public class ConfirmationDialog {
             alert = new Alert(Alert.AlertType.CONFIRMATION);
             dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add("style.css");
+            dialogPane.getScene().setFill(Color.TRANSPARENT);
             alert.initStyle(StageStyle.UNDECORATED);
+            alert.initStyle(StageStyle.TRANSPARENT);
         }
 
         alert.setHeaderText("Confirm Purchase?");
@@ -27,6 +30,7 @@ public class ConfirmationDialog {
         ImageView icon = new ImageView("sample/controllers/Question.png");
         icon.setFitHeight(48);
         icon.setFitWidth(48);
+
         alert.getDialogPane().setGraphic(icon);
         Optional<ButtonType> result = alert.showAndWait();
 
